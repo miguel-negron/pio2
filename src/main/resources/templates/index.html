@@ -69,7 +69,7 @@
         <table class="table">
         	<thead>
         		<tr>
-        			<th>ID</th>
+        			<th>DNI</th>
         			<th>Avatar</th>
         			<th>Nombre</th>
         			<th>Email</th>
@@ -77,13 +77,19 @@
         			<th>Operaciones</th>
         	</thead>
         	<tbody>
-        		<tr th:each="empleado : ${listaEmpleados}">
-        			<td th:text="${empleado.id}">ID</td>
+        		<tr th:each="ninyo : ${listaNinyos}">
+        			<td th:text="${ninyo.dni}">dni</td>
+        			<!--  
+        			
         			<td><img th:src="@{${empleado.imagen}?: 'http://api.adorable.io/avatars/64/{email}.png'(email=${empleado.email})}" width="64px"></td>
         			<td th:text="${empleado.nombre}">Pepe Pérez</td>
         			<td th:text="${empleado.email}">pepe.perez@openwebinars.net</td>
         			<td th:text="${empleado.telefono}">954000000</td>
-        			<td><a th:href="@{/empleado/edit/{id}(id=${empleado.id})}">Editar</a></td>        		
+        			
+        			
+        			<td><a th:href="@{/empleado/edit/{id}(id=${empleado.id})}">Editar</a></td>  
+        			
+        			-->      		
         		</tr>
         	</tbody>
         </table>
