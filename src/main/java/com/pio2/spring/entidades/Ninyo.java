@@ -1,7 +1,10 @@
 package com.pio2.spring.entidades;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Ninyo {
@@ -11,7 +14,11 @@ public class Ninyo {
 
 	private String nombre;
 	private String email;
-	//private Curso curso;
+	
+	@ManyToOne
+	@JoinColumn(name = "curso_nombre",
+    foreignKey = @ForeignKey(name="CURSO_NOMBRE_FK_NINYO"))
+	private Curso curso;
 
 	public Ninyo() {
 		super();
@@ -24,13 +31,13 @@ public class Ninyo {
 		this.email = email;
 	}
 
-//	public Ninyo(String dni, String nombre, String email, Curso curso) {
-//		super();
-//		this.dni = dni;
-//		this.nombre = nombre;
-//		this.email = email;
-//		this.curso = curso;
-//	}
+	public Ninyo(String dni, String nombre, String email, Curso curso) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.email = email;
+		this.curso = curso;
+	}
 
 	public String getDni() {
 		return dni;
@@ -56,19 +63,19 @@ public class Ninyo {
 		this.email = email;
 	}
 
-//	public Curso getCurso() {
-//		return curso;
-//	}
-//
-//	public void setCurso(Curso curso) {
-//		this.curso = curso;
-//	}
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-//		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
+		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((dni == null) ? 0 : dni.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
@@ -84,11 +91,11 @@ public class Ninyo {
 		if (getClass() != obj.getClass())
 			return false;
 		Ninyo other = (Ninyo) obj;
-//		if (curso == null) {
-//			if (other.curso != null)
-//				return false;
-//		} else if (!curso.equals(other.curso))
-//			return false;
+		if (curso == null) {
+			if (other.curso != null)
+				return false;
+		} else if (!curso.equals(other.curso))
+			return false;
 		if (dni == null) {
 			if (other.dni != null)
 				return false;
@@ -109,7 +116,7 @@ public class Ninyo {
 
 	@Override
 	public String toString() {
-		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", email=" + email + ", ";
+		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", email=" + email + ", curso=" + curso + "]";
 	}
 
 }
