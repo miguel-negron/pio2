@@ -9,6 +9,10 @@ public class Ninyo {
 	@Id
 	private String dni;
 
+	public Ninyo() {
+		super();
+	}
+
 	public Ninyo(String dni) {
 		super();
 		this.dni = dni;
