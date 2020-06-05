@@ -6,6 +6,17 @@ import javax.persistence.Id;
 @Entity
 public class Ninyo {
 
+	@Id
+	private String dni;
+
+	private String nombre;
+	private String email;
+	//private Curso curso;
+
+	public Ninyo() {
+		super();
+	}
+
 	public Ninyo(String dni, String nombre, String email) {
 		super();
 		this.dni = dni;
@@ -13,8 +24,14 @@ public class Ninyo {
 		this.email = email;
 	}
 
-	@Id
-	private String dni;
+//	public Ninyo(String dni, String nombre, String email, Curso curso) {
+//		super();
+//		this.dni = dni;
+//		this.nombre = nombre;
+//		this.email = email;
+//		this.curso = curso;
+//	}
+
 	public String getDni() {
 		return dni;
 	}
@@ -39,17 +56,19 @@ public class Ninyo {
 		this.email = email;
 	}
 
-	private String nombre;
-	private String email;
-
-	public Ninyo() {
-		super();
-	}
+//	public Curso getCurso() {
+//		return curso;
+//	}
+//
+//	public void setCurso(Curso curso) {
+//		this.curso = curso;
+//	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+//		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((dni == null) ? 0 : dni.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
@@ -65,6 +84,11 @@ public class Ninyo {
 		if (getClass() != obj.getClass())
 			return false;
 		Ninyo other = (Ninyo) obj;
+//		if (curso == null) {
+//			if (other.curso != null)
+//				return false;
+//		} else if (!curso.equals(other.curso))
+//			return false;
 		if (dni == null) {
 			if (other.dni != null)
 				return false;
@@ -85,7 +109,7 @@ public class Ninyo {
 
 	@Override
 	public String toString() {
-		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", email=" + email + "]";
+		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", email=" + email + ", ";
 	}
 
 }
