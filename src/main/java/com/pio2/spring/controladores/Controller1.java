@@ -22,4 +22,9 @@ public class Controller1 {
 		model.addAttribute("listaNinyos", servicio.findAll());
 		return "index";
 	}
+	
+	//@GetMapping("/ninyo/new")
+	public String crearNinyo(Model model) {
+		return "form";
+	}
 }
