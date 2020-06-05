@@ -31,7 +31,7 @@ public class Pio2Application {
 //			repositorio.findAll().forEach(System.out::println);
 
 			repositorio.saveAll( 
-					Arrays.asList(new Ninyo("1"), new Ninyo("2"), new Ninyo("3"))
+					Arrays.asList(new Ninyo("1","Adrian","correo@prueba.com"), new Ninyo("2","Miguel","correo@prueba.com"), new Ninyo("3","Roberto","correo@prueba.com"))
 					);
 
 		};

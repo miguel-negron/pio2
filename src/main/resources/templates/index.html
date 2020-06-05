@@ -70,7 +70,7 @@
         	<thead>
         		<tr>
         			<th>DNI</th>
-        			<th>Avatar</th>
+        			<!-- <th>Avatar</th> -->
         			<th>Nombre</th>
         			<th>Email</th>
         			<th>Teléfono</th>
@@ -79,6 +79,9 @@
         	<tbody>
         		<tr th:each="ninyo : ${listaNinyos}">
         			<td th:text="${ninyo.dni}">dni</td>
+        			<td th:text="${ninyo.nombre}">nombre</td>
+        			<td th:text="${ninyo.email}">email</td>
+        			
         			<!--  
         			
         			<td><img th:src="@{${empleado.imagen}?: 'http://api.adorable.io/avatars/64/{email}.png'(email=${empleado.email})}" width="64px"></td>
