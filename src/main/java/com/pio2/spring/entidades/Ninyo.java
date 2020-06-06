@@ -20,7 +20,7 @@ public class Ninyo {
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
-	private String FechaDeNacimiento;
+	private String fechaDeNacimiento;
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Tutor> tutores = new ArrayList<>();
@@ -34,17 +34,18 @@ public class Ninyo {
 		super();
 	}
 
-	public Ninyo(String dni, String nombre, String email) {
+	public Ninyo(String dni) {
 		super();
 		this.dni = dni;
-		this.nombre = nombre;
 	}
 
-	public Ninyo(String dni, String nombre, String email, Curso curso) {
+	public Ninyo(String dni, String nombre, String apellido1, String apellido2, String fechaDeNacimiento) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
-		this.curso = curso;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
 
 	public String getDni() {
@@ -63,6 +64,38 @@ public class Ninyo {
 		this.nombre = nombre;
 	}
 
+	public String getApellido1() {
+		return apellido1;
+	}
+
+	public void setApellido1(String apellido1) {
+		this.apellido1 = apellido1;
+	}
+
+	public String getApellido2() {
+		return apellido2;
+	}
+
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
+	}
+
+	public String getFechaDeNacimiento() {
+		return fechaDeNacimiento;
+	}
+
+	public void setFechaDeNacimiento(String fechaDeNacimiento) {
+		this.fechaDeNacimiento = fechaDeNacimiento;
+	}
+
+	public List<Tutor> getTutores() {
+		return tutores;
+	}
+
+	public void setTutores(List<Tutor> tutores) {
+		this.tutores = tutores;
+	}
+
 	public Curso getCurso() {
 		return curso;
 	}
@@ -75,9 +108,13 @@ public class Ninyo {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((apellido1 == null) ? 0 : apellido1.hashCode());
+		result = prime * result + ((apellido2 == null) ? 0 : apellido2.hashCode());
 		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((dni == null) ? 0 : dni.hashCode());
+		result = prime * result + ((fechaDeNacimiento == null) ? 0 : fechaDeNacimiento.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((tutores == null) ? 0 : tutores.hashCode());
 		return result;
 	}
 
@@ -90,6 +127,16 @@ public class Ninyo {
 		if (getClass() != obj.getClass())
 			return false;
 		Ninyo other = (Ninyo) obj;
+		if (apellido1 == null) {
+			if (other.apellido1 != null)
+				return false;
+		} else if (!apellido1.equals(other.apellido1))
+			return false;
+		if (apellido2 == null) {
+			if (other.apellido2 != null)
+				return false;
+		} else if (!apellido2.equals(other.apellido2))
+			return false;
 		if (curso == null) {
 			if (other.curso != null)
 				return false;
@@ -100,17 +147,29 @@ public class Ninyo {
 				return false;
 		} else if (!dni.equals(other.dni))
 			return false;
+		if (fechaDeNacimiento == null) {
+			if (other.fechaDeNacimiento != null)
+				return false;
+		} else if (!fechaDeNacimiento.equals(other.fechaDeNacimiento))
+			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
 				return false;
 		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (tutores == null) {
+			if (other.tutores != null)
+				return false;
+		} else if (!tutores.equals(other.tutores))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", email="  + ", curso=" + curso + "]";
+		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", tutores=" + tutores + ", curso=" + curso + "]";
 	}
 
+	
 }
