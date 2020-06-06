@@ -74,6 +74,16 @@ public class Curso {
 	public void setMonitores(List<Monitor> monitores) {
 		this.monitores = monitores;
 	}
+	
+	public void addMonitor(Monitor monitor) {
+        monitores.add(monitor);
+        monitor.setCurso(this);
+    }
+
+    public void removeMonitor(Monitor monitor) {
+    	monitores.remove(monitor);
+    	monitor.setCurso(null);
+    }
 
 	@Override
 	public int hashCode() {

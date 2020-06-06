@@ -67,10 +67,15 @@ public class Pio2Application {
 				Monitor m = new Monitor(Integer.toString(i));
 				
 				n.setCurso(c);
+				m.setCurso(c);
+				
 				
 				repositorioCursos.save(c);
 				repositorioNinyos.save(n);
 				repositorioMonitores.save(m);
+				
+				c.setJefe(m);
+				repositorioCursos.save(c);
 
 			}
 
