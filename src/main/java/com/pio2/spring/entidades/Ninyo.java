@@ -1,9 +1,14 @@
 package com.pio2.spring.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,7 +18,12 @@ public class Ninyo {
 	private String dni;
 
 	private String nombre;
-	private String email;
+	private String apellido1;
+	private String apellido2;
+	private String FechaDeNacimiento;
+	
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Tutor> tutores = new ArrayList<>();
 	
 	@ManyToOne
 	@JoinColumn(name = "curso_nombre",
@@ -28,14 +38,12 @@ public class Ninyo {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
-		this.email = email;
 	}
 
 	public Ninyo(String dni, String nombre, String email, Curso curso) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
-		this.email = email;
 		this.curso = curso;
 	}
 
@@ -55,14 +63,6 @@ public class Ninyo {
 		this.nombre = nombre;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public Curso getCurso() {
 		return curso;
 	}
@@ -77,7 +77,6 @@ public class Ninyo {
 		int result = 1;
 		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((dni == null) ? 0 : dni.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
@@ -101,11 +100,6 @@ public class Ninyo {
 				return false;
 		} else if (!dni.equals(other.dni))
 			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
 				return false;
@@ -116,7 +110,7 @@ public class Ninyo {
 
 	@Override
 	public String toString() {
-		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", email=" + email + ", curso=" + curso + "]";
+		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", email="  + ", curso=" + curso + "]";
 	}
 
 }
