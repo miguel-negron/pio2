@@ -11,7 +11,7 @@ import com.pio2.spring.servicios.NinyoServiceDB;
 import antlr.collections.List;
 
 @Controller
-public class Controller1 {
+public class ControllerPrincipal {
 	
 	@Autowired
 	NinyoServiceDB servicio;
