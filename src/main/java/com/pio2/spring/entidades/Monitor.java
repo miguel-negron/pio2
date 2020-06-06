@@ -18,4 +18,13 @@ public class Monitor {
 	@JoinColumn(name = "curso_nombre",
     foreignKey = @ForeignKey(name="CURSO_NOMBRE_FK_MONITOR"))
 	private Curso curso;
+
+	public Monitor() {
+		super();
+	}
+
+	public Monitor(String dni) {
+		super();
+		this.dni = dni;
+	}
 }

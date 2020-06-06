@@ -41,10 +41,47 @@ public class Curso {
 		this.nombre = nombre;
 	}
 
+	public Monitor getJefe() {
+		return jefe;
+	}
+
+	public void setJefe(Monitor jefe) {
+		this.jefe = jefe;
+	}
+
+	public List<Ninyo> getNinyos() {
+		return ninyos;
+	}
+
+	public void setNinyos(List<Ninyo> ninyos) {
+		this.ninyos = ninyos;
+	}
+	
+	public void addNinyo(Ninyo ninyo) {
+        ninyos.add(ninyo);
+        ninyo.setCurso(this);
+    }
+
+    public void removeNinyo(Ninyo ninyo) {
+        ninyos.remove(ninyo);
+        ninyo.setCurso(null);
+    }
+
+	public List<Monitor> getMonitores() {
+		return monitores;
+	}
+
+	public void setMonitores(List<Monitor> monitores) {
+		this.monitores = monitores;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((jefe == null) ? 0 : jefe.hashCode());
+		result = prime * result + ((monitores == null) ? 0 : monitores.hashCode());
+		result = prime * result + ((ninyos == null) ? 0 : ninyos.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
@@ -58,6 +95,21 @@ public class Curso {
 		if (getClass() != obj.getClass())
 			return false;
 		Curso other = (Curso) obj;
+		if (jefe == null) {
+			if (other.jefe != null)
+				return false;
+		} else if (!jefe.equals(other.jefe))
+			return false;
+		if (monitores == null) {
+			if (other.monitores != null)
+				return false;
+		} else if (!monitores.equals(other.monitores))
+			return false;
+		if (ninyos == null) {
+			if (other.ninyos != null)
+				return false;
+		} else if (!ninyos.equals(other.ninyos))
+			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
 				return false;
@@ -68,8 +120,9 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [nombre=" + nombre + "]";
+		return "Curso [nombre=" + nombre + ", jefe=" + jefe + ", ninyos=" + ninyos + ", monitores=" + monitores + "]";
 	}
+
 	
 	
 }

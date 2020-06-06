@@ -102,6 +102,7 @@ public class Ninyo {
 
 	public void setCurso(Curso curso) {
 		this.curso = curso;
+		curso.getNinyos().add(this);
 	}
 
 	@Override
