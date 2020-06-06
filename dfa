@@ -1,0 +1,35 @@
+[33mcommit 8bfce489f377b9d05b7d122b0b1212c5d892cb43[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Adrian-Rubio <adrian41198@gmail.com>
+Date:   Fri Jun 5 16:04:18 2020 +0200
+
+    commit Control
+
+[33mcommit fc66f4dc02b93a2591c9dad49d7ea7a6b893cf95[m
+Author: miguel <miguel.negron@gmail.com>
+Date:   Fri Jun 5 14:46:24 2020 +0200
+
+    Primer controller, primera plantilla, seguridad+admin implementado.
+
+[33mcommit d09708c12fa10b8fad059090091e7d66d70edc34[m
+Author: miguel <miguel.negron@gmail.com>
+Date:   Fri Jun 5 13:38:32 2020 +0200
+
+    Creacion paquetes y clases de relleno
+
+[33mcommit a127d72bb77ce60ee34df21cde4672ae122cffc4[m
+Author: miguel <miguel.negron@gmail.com>
+Date:   Thu Jun 4 15:15:43 2020 +0200
+
+    anyadir config e iniciales del pom
+
+[33mcommit 251822922ddd1cc04536db12848407e44f2cb678[m
+Author: miguel <miguel.negron@gmail.com>
+Date:   Thu Jun 4 15:04:15 2020 +0200
+
+    primer commit desde consola
+
+[33mcommit 3e4a54534b3b688e3c43e5f39073f59ac9850a3e[m
+Author: miguel-negron <58752194+miguel-negron@users.noreply.github.com>
+Date:   Thu Jun 4 14:52:46 2020 +0200
+
+    Initial commit
