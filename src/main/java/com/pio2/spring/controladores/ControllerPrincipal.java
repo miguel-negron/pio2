@@ -11,7 +11,7 @@ import com.pio2.spring.servicios.NinyoServiceDB;
 import antlr.collections.List;
 
 @Controller
-public class Controller1 {
+public class ControllerPrincipal {
 	
 	@Autowired
 	NinyoServiceDB servicio;
@@ -21,5 +21,16 @@ public class Controller1 {
 	public String controller1(Model model) {
 		model.addAttribute("listaNinyos", servicio.findAll());
 		return "index";
+	}
+	
+	@GetMapping("/login")
+	public String log(Model model) {
+		model.addAttribute("listaNinyos", servicio.findAll());
+		return "login";
+	}
+	
+	//@GetMapping("/ninyo/new")
+	public String crearNinyo(Model model) {
+		return "form";
 	}
 }

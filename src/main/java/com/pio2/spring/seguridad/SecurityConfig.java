@@ -22,19 +22,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.roles("ADMIN");
 	}
 	
-	/*
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.authorizeRequests()
-				.antMatchers("/webjars/**", "/css/**", "/h2-console/**").permitAll()
-				.anyRequest().authenticated()
-				;
-		
-		http.csrf().disable();
-        http.headers().frameOptions().disable();
+		.authorizeRequests()
+			.antMatchers("/webjars/**", "/css/**", "/h2-console/**").permitAll()
+			.anyRequest().authenticated()
+			.and()
+		.formLogin()
+			.loginPage("/login")
+			.permitAll()
+			.and()
+		.logout();
+	
+	http.csrf().disable();
+    http.headers().frameOptions().disable();
 				
 	}
-	*/
+	
 
 }
