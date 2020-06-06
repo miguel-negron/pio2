@@ -1,6 +1,6 @@
 HELP.md
 target/
-pio2.mv.db
+*.db
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
