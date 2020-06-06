@@ -96,6 +96,16 @@ public class Ninyo {
 		this.tutores = tutores;
 	}
 
+	public void addTutor(Tutor tutor) {
+		tutores.add(tutor);
+		tutor.getHijos().add(this);
+    }
+
+    public void removeTutor(Tutor tutor) {
+    	tutores.remove(tutor);
+    	tutor.getHijos().remove(this);
+    }
+
 	public Curso getCurso() {
 		return curso;
 	}

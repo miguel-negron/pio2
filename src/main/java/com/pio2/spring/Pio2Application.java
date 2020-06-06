@@ -13,6 +13,7 @@ import com.pio2.spring.entidades.Ninyo;
 import com.pio2.spring.repositorios.CursoRepository;
 import com.pio2.spring.repositorios.MonitorRepository;
 import com.pio2.spring.repositorios.NinyoRepository;
+import com.pio2.spring.utilidades.EnumCargos;
 import com.pio2.spring.utilidades.EnumCursos;
 
 @SpringBootApplication
@@ -65,7 +66,7 @@ public class Pio2Application {
 				Ninyo n = new Ninyo(Integer.toString(i));
 				Curso c = new Curso(EnumCursos.values()[i].toString());
 				Monitor m = new Monitor(Integer.toString(i));
-				
+				m.setCargo(EnumCargos.values()[i%EnumCargos.values().length].toString());
 				n.setCurso(c);
 				m.setCurso(c);
 				
