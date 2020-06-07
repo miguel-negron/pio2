@@ -25,28 +25,7 @@ public class Pio2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Pio2Application.class, args);
 	}
-	
-/*
-	@Bean
-	CommandLineRunner initDataCursos(CursoRepository repositorioCursos) {
-		return (args) -> {
 
-//			Empleado empleado = new Empleado("Luis Miguel López", "luismi.lopez@openwebinars.net", "954000000");
-//			Empleado empleado2 = new Empleado("José García", "jose.garcia@openwebinars.net", "954000000");
-//			
-//			repositorio.save(empleado);
-//			repositorio.save(empleado2);
-//			
-//			repositorio.findAll().forEach(System.out::println);
-
-			for (EnumCursos nombre : EnumCursos.values()) {
-				Curso c = new Curso(nombre.toString());
-				repositorioCursos.save(c);
-			}
-
-		};
-	}
-	*/
 	@Bean
 	CommandLineRunner initDataNinyos(NinyoRepository repositorioNinyos, 
 										CursoRepository repositorioCursos,
