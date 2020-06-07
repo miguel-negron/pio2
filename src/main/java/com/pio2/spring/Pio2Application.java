@@ -7,12 +7,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.pio2.spring.entidades.Alergia;
 import com.pio2.spring.entidades.Curso;
 import com.pio2.spring.entidades.Monitor;
 import com.pio2.spring.entidades.Ninyo;
+import com.pio2.spring.repositorios.AlergiaRepository;
 import com.pio2.spring.repositorios.CursoRepository;
 import com.pio2.spring.repositorios.MonitorRepository;
 import com.pio2.spring.repositorios.NinyoRepository;
+import com.pio2.spring.utilidades.EnumAlergias;
 import com.pio2.spring.utilidades.EnumCargos;
 import com.pio2.spring.utilidades.EnumCursos;
 
@@ -47,7 +50,8 @@ public class Pio2Application {
 	@Bean
 	CommandLineRunner initDataNinyos(NinyoRepository repositorioNinyos, 
 										CursoRepository repositorioCursos,
-										MonitorRepository repositorioMonitores) {
+										MonitorRepository repositorioMonitores,
+										AlergiaRepository repositorioAlergias) {
 		return (args) -> {
 
 //			Empleado empleado = new Empleado("Luis Miguel López", "luismi.lopez@openwebinars.net", "954000000");
@@ -66,7 +70,8 @@ public class Pio2Application {
 				Ninyo n = new Ninyo(Integer.toString(i));
 				Curso c = new Curso(EnumCursos.values()[i].toString());
 				Monitor m = new Monitor(Integer.toString(i));
-				m.setCargo(EnumCargos.values()[i%EnumCargos.values().length].toString());
+					m.setCargo(EnumCargos.values()[i%EnumCargos.values().length].toString());
+				
 				n.setCurso(c);
 				m.setCurso(c);
 				
@@ -78,6 +83,12 @@ public class Pio2Application {
 				c.setJefe(m);
 				repositorioCursos.save(c);
 
+			}
+			
+			for (EnumAlergias alergeno : EnumAlergias.values()) {
+				Alergia a = new Alergia(alergeno.toString());
+				
+				repositorioAlergias.save(a);
 			}
 
 		};

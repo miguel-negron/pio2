@@ -22,8 +22,12 @@ public class Ninyo {
 	private String apellido2;
 	private String fechaDeNacimiento;
 	
+	//TODO enterarse bien de los cascadetypes
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Tutor> tutores = new ArrayList<>();
+	
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Alergia> alergias = new ArrayList<>();
 	
 	@ManyToOne
 	@JoinColumn(name = "curso_nombre",
@@ -104,6 +108,24 @@ public class Ninyo {
     public void removeTutor(Tutor tutor) {
     	tutores.remove(tutor);
     	tutor.getHijos().remove(this);
+    }
+
+	public List<Alergia> getAlergias() {
+		return alergias;
+	}
+
+	public void setAlergias(List<Alergia> alergias) {
+		this.alergias = alergias;
+	}
+	
+	public void addAlergia(Alergia alergia) {
+		alergias.add(alergia);
+		alergia.getNinyosAlergicos().add(this);
+    }
+
+    public void removeAlergia(Alergia alergia) {
+    	alergias.remove(alergia);
+    	alergia.getNinyosAlergicos().remove(this);
     }
 
 	public Curso getCurso() {

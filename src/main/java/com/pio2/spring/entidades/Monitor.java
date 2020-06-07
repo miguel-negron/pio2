@@ -1,9 +1,14 @@
 package com.pio2.spring.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity	
@@ -17,6 +22,9 @@ public class Monitor {
 	private String apellido2;
 	private String fechaDeNacimiento;
 	private String cargo;
+
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Alergia> alergias = new ArrayList<>();
 
 	@ManyToOne
 	@JoinColumn(name = "curso_nombre",
@@ -92,6 +100,24 @@ public class Monitor {
 		this.cargo = cargo;
 	}
 
+	public List<Alergia> getAlergias() {
+		return alergias;
+	}
+
+	public void setAlergias(List<Alergia> alergias) {
+		this.alergias = alergias;
+	}
+	
+	public void addAlergia(Alergia alergia) {
+		alergias.add(alergia);
+		alergia.getMonitoresAlergicos().add(this);
+    }
+
+    public void removeAlergia(Alergia alergia) {
+    	alergias.remove(alergia);
+    	alergia.getMonitoresAlergicos().remove(this);
+    }
+
 	public Curso getCurso() {
 		return curso;
 	}
@@ -105,6 +131,7 @@ public class Monitor {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((alergias == null) ? 0 : alergias.hashCode());
 		result = prime * result + ((apellido1 == null) ? 0 : apellido1.hashCode());
 		result = prime * result + ((apellido2 == null) ? 0 : apellido2.hashCode());
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
@@ -124,6 +151,11 @@ public class Monitor {
 		if (getClass() != obj.getClass())
 			return false;
 		Monitor other = (Monitor) obj;
+		if (alergias == null) {
+			if (other.alergias != null)
+				return false;
+		} else if (!alergias.equals(other.alergias))
+			return false;
 		if (apellido1 == null) {
 			if (other.apellido1 != null)
 				return false;
@@ -165,7 +197,8 @@ public class Monitor {
 	@Override
 	public String toString() {
 		return "Monitor [dni=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", cargo=" + cargo + ", curso=" + curso + "]";
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", cargo=" + cargo + ", alergias=" + alergias
+				+ ", curso=" + curso + "]";
 	}
 
 	
