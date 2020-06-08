@@ -201,7 +201,7 @@ public class Ninyo {
 	@Override
 	public String toString() {
 		return "Ninyo [dni=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", tutores=" + tutores + ", curso=" + curso + "]";
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", tutores=" + tutores + ", curso=" + curso.getNombre() + "]";
 	}
 
 	

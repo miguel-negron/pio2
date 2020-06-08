@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.pio2.spring.entidades.Monitor;
 import com.pio2.spring.entidades.Ninyo;
+import com.pio2.spring.repositorios.CursoRepository;
 import com.pio2.spring.repositorios.MonitorRepository;
+import com.pio2.spring.servicios.CursoServiceDB;
 import com.pio2.spring.servicios.NinyoService;
 import com.pio2.spring.servicios.NinyoServiceDB;
 
@@ -18,28 +20,29 @@ import com.pio2.spring.servicios.NinyoServiceDB;
 public class ControllerNinyo {
 	
 	@Autowired
-	NinyoServiceDB servicio;
+	NinyoServiceDB servicioNinyo;
 	
 	@Autowired
-	MonitorRepository repositorioMonitores;
+	CursoRepository serviceCurso;
 
 	
 	
 	@GetMapping("/ninyo/new")
 	public String controllerAnyadirMonitor(Model model) {
 		model.addAttribute("listaNinyos", new Ninyo());
+		model.addAttribute("cursos", serviceCurso.findAll());
 		return "formNinyo";
 	}
 	
 	@PostMapping("/ninyo/new/submit")
-	public String nuevoEmpleadoSubmit(/*@Valid*/ @ModelAttribute("listaNinyos") Monitor nuevoMonitor,
+	public String nuevoEmpleadoSubmit(/*@Valid*/ @ModelAttribute("listaNinyos") Ninyo ninyo,
 										BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
 			return "formNinyo";
 		} else {
-			repositorioMonitores.save(nuevoMonitor);
-			return "redirect:/index";
+			servicioNinyo.add(ninyo);
+			return "redirect:/";
 		}
 
 	}

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" 
-				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,21 +55,90 @@
 
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">
+
+
+
+
+				<!-- 					<div class="form-group"> -->
+				<!-- 						<label for="dni">dni</label> <input type="text" -->
+				<!-- 							class="form-control" id="dni" placeholder="dni" th:field="*{dni}" /> -->
+				<!-- 					</div> -->
+
+
+
+
+
 				<form method="post" enctype="multipart/form-data" action="#"
-					th:action="@{/ninyo/new/submit}"
-					th:object="${listaNinyos}">
-					<h1
-						th:text="'Nuevo empleado'">Nuevo empleado</h1>
+					th:action="@{/ninyo/new/submit}" th:object="${listaNinyos}">
+					<h1 th:text="'Nuevo empleado'">Nuevo niño</h1>
 
-					<div class="form-group">
-						<label for="dni">dni</label> <input type="text"
-							class="form-control" id="dni" placeholder="dni"
-							th:field="*{dni}" />
+					<div class="form-group row">
+						<label for="dni" class="col-4 col-form-label">Dni</label>
+						<div class="col-8">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-500px"></i>
+									</div>
+								</div>
+								<input id="dni" name="dni" placeholder="12345678X" type="text"
+									required="required" class="form-control" th:field="*{dni}">
+							</div>
+						</div>
 					</div>
-					
-					
-
-					<button type="submit" class="btn btn-default">Enviar</button>
+					<div class="form-group row">
+						<label for="nombre" class="col-4 col-form-label">Nombre</label>
+						<div class="col-8">
+							<input id="nombre" name="nombre" type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="apellido1" class="col-4 col-form-label">Apellido
+							1</label>
+						<div class="col-8">
+							<input id="apellido1" name="apellido1" type="text"
+								class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="apellido2" class="col-4 col-form-label">Apellido
+							2</label>
+						<div class="col-8">
+							<input id="apellido2" name="apellido2" type="text"
+								class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-4 col-form-label" for="fechaDeNacimiento">Fecha
+							de nacimiento</label>
+						<div class="col-8">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-birthday-cake"></i>
+									</div>
+								</div>
+								<input id="fechaDeNacimiento" name="fechaDeNacimiento"
+									type="text" class="form-control">
+							</div>
+						</div>
+					</div>
+	<!-- 
+					<div class="form-group row">
+						<label for="curso" class="col-4 col-form-label">Rama</label>
+						<div class="col-8">
+							<select id="curso" name="curso" class="custom-select">
+								<option th:each="curso : ${cursos}" th:value="${curso}"
+									th:text="${curso.nombre}">Nombre curso</option>
+							</select>
+						</div>
+					</div>
+ -->
+					<div class="form-group row">
+						<div class="offset-4 col-8">
+							<button name="submit" type="submit" class="btn btn-primary">Aceptar</button>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>

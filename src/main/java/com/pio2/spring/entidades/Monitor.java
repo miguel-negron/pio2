@@ -237,7 +237,7 @@ public class Monitor {
 	public String toString() {
 		return "Monitor [dni=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
 				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", cargo=" + cargo + ", telefono=" + telefono
-				+ ", email=" + email + ", alergias=" + alergias + ", curso=" + curso + "]";
+				+ ", email=" + email + ", alergias=" + alergias + ", curso=" + curso.getNombre() + "]";
 	}
 
 	
