@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.pio2.spring.repositorios.CursoRepository;
+import com.pio2.spring.repositorios.MonitorRepository;
 import com.pio2.spring.repositorios.NinyoRepository;
 import com.pio2.spring.servicios.NinyoServiceDB;
 
@@ -16,11 +18,20 @@ public class ControllerPrincipal {
 	@Autowired
 	NinyoServiceDB servicio;
 	
+	@Autowired
+	MonitorRepository repositorioMonitores;
+
 	
 	@GetMapping("/")
 	public String controller1(Model model) {
 		model.addAttribute("listaNinyos", servicio.findAll());
 		return "index";
+	}
+	
+	@GetMapping("/monitores")
+	public String controllerListaMonitores(Model model) {
+		model.addAttribute("listaMonitores", repositorioMonitores.findAll());
+		return "indexMonitores";
 	}
 	
 	@GetMapping("/login")
