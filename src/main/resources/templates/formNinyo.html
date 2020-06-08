@@ -127,7 +127,7 @@
 					<div class="form-group row">
 						<label for="curso" class="col-4 col-form-label">Rama</label>
 						<div class="col-8">
-							<select id="curso" name="curso" class="custom-select">
+							<select id="curso" name="curso" class="custom-select" th:field= xxxxxxxxxxxxxxx>
 								<option th:each="curso : ${cursos}" th:value="${curso}"
 									th:text="${curso.nombre}">Nombre curso</option>
 							</select>
