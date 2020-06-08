@@ -36,7 +36,7 @@ public class Pio2Application {
 //			Empleado empleado = new Empleado("Luis Miguel López", "luismi.lopez@openwebinars.net", "954000000");
 //			Empleado empleado2 = new Empleado("José García", "jose.garcia@openwebinars.net", "954000000");
 //			
-//			repositorio.save(empleado);
+//			repositori1o.save(empleado);
 //			repositorio.save(empleado2);
 //			
 //			repositorio.findAll().forEach(System.out::println);

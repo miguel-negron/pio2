@@ -37,7 +37,7 @@ public class NinyoServiceDB implements NinyoService{
 	}
 	
 	public void delete(Ninyo e) {
-		repositorio.delete(e);;
+		repositorio.delete(e);
 	}
 
 }

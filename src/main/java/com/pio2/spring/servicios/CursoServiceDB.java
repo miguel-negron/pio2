@@ -1,0 +1,35 @@
+package com.pio2.spring.servicios;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.pio2.spring.entidades.Curso;
+import com.pio2.spring.repositorios.CursoRepository;
+
+public class CursoServiceDB implements CursoService {
+
+	@Autowired
+	CursoRepository repositorio;
+	
+	@Override
+	public Curso add(Curso e) {
+		return repositorio.save(e);
+	}
+
+	@Override
+	public List<Curso> findAll() {
+		return repositorio.findAll();
+	}
+
+	@Override
+	public Curso findById(Long id) {
+		return repositorio.findById(id).orElse(null);
+	}
+
+	@Override
+	public Curso edit(Curso e) {
+		return repositorio.save(e);
+	}
+
+}

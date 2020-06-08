@@ -10,4 +10,5 @@ public interface NinyoService {
 	public List<Ninyo> findAll();
 	public Ninyo findById(long id);
 	public Ninyo edit(Ninyo e);
+	
 }
