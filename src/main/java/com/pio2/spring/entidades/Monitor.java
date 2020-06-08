@@ -22,7 +22,9 @@ public class Monitor {
 	private String apellido2;
 	private String fechaDeNacimiento;
 	private String cargo;
-
+	private String telefono;
+	private String email;
+	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Alergia> alergias = new ArrayList<>();
 
@@ -40,8 +42,15 @@ public class Monitor {
 		this.dni = dni;
 	}
 
-	public Monitor(String dni, String nombre, String apellido1, String apellido2, String fechaDeNacimiento,
-			String cargo, Curso curso) {
+	public Monitor(String dni, 
+			String nombre, 
+			String apellido1, 
+			String apellido2, 
+			String fechaDeNacimiento,
+			String cargo, 
+			String telefono, 
+			String email, 
+			Curso curso) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -49,7 +58,9 @@ public class Monitor {
 		this.apellido2 = apellido2;
 		this.fechaDeNacimiento = fechaDeNacimiento;
 		this.cargo = cargo;
-		this.curso = curso;
+		this.telefono = telefono;
+		this.email = email;
+		this.setCurso(curso);
 	}
 
 	public String getDni() {
@@ -100,6 +111,22 @@ public class Monitor {
 		this.cargo = cargo;
 	}
 
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public List<Alergia> getAlergias() {
 		return alergias;
 	}
@@ -137,8 +164,10 @@ public class Monitor {
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
 		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((dni == null) ? 0 : dni.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((fechaDeNacimiento == null) ? 0 : fechaDeNacimiento.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
 		return result;
 	}
 
@@ -181,6 +210,11 @@ public class Monitor {
 				return false;
 		} else if (!dni.equals(other.dni))
 			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
 		if (fechaDeNacimiento == null) {
 			if (other.fechaDeNacimiento != null)
 				return false;
@@ -191,14 +225,19 @@ public class Monitor {
 				return false;
 		} else if (!nombre.equals(other.nombre))
 			return false;
+		if (telefono == null) {
+			if (other.telefono != null)
+				return false;
+		} else if (!telefono.equals(other.telefono))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "Monitor [dni=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", cargo=" + cargo + ", alergias=" + alergias
-				+ ", curso=" + curso + "]";
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", cargo=" + cargo + ", telefono=" + telefono
+				+ ", email=" + email + ", alergias=" + alergias + ", curso=" + curso + "]";
 	}
 
 	
