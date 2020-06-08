@@ -73,8 +73,10 @@
         	<thead>
         		<tr>
         			<th>DNI</th>
-        			<!-- <th>Avatar</th> -->
         			<th>Nombre</th>
+        			<th>Primer Apellido</th>
+        			<th>Segundo Apellido</th>
+        			<th>Fecha de nacimiento</th>
         			<th>Email</th>
         			<th>Teléfono</th>
         			<th>Operaciones</th>
@@ -83,7 +85,11 @@
         		<tr th:each="monitor : ${listaMonitores}">
         			<td th:text="${monitor.dni}">dni</td>
         			<td th:text="${monitor.nombre}">nombre</td>
-        			
+        			<td th:text="${monitor.apellido1}">Primer apellido</td>
+        			<td th:text="${monitor.apellido2}">Segundo apellido</td>
+        			<td th:text="${monitor.fechaDeNacimiento}">Fecha de nacimiento</td>
+        			<td th:text="${monitor.telefono}">Teléfono</td>
+        			<td th:text="${monitor.email}">E-mail</td>
         			
         			<!--  
         			
