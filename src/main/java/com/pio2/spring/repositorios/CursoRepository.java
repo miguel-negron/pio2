@@ -6,4 +6,6 @@ import com.pio2.spring.entidades.Curso;
 
 public interface CursoRepository extends JpaRepository<Curso, Long> {
 
+	Curso findByNombre(String nombre);
+	
 }

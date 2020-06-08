@@ -18,41 +18,11 @@ public class ControllerPrincipal {
 	@Autowired
 	NinyoServiceDB servicio;
 	
-	@Autowired
-	MonitorRepository repositorioMonitores;
-
-	
 	@GetMapping("/")
 	public String controller1(Model model) {
 		model.addAttribute("listaNinyos", servicio.findAll());
 		return "index";
 	}
-	
-	@GetMapping("/monitores")
-	public String controllerListaMonitores(Model model) {
-		model.addAttribute("listaMonitores", repositorioMonitores.findAll());
-		return "indexMonitores";
-	}
-	
-	@GetMapping("/monitor/new")
-	public String controllerAnyadirMonitor(Model model) {
-		model.addAttribute("monitorForm", new Monitor());
-		return "formMonitor";
-	}
-	
-	@PostMapping("/monitor/new/submit")
-	public String nuevoEmpleadoSubmit(/*@Valid*/ @ModelAttribute("empleadoForm") Monitor nuevoMonitor,
-										BindingResult bindingResult) {
-
-		if (bindingResult.hasErrors()) {
-			return "formMonitor";
-		} else {
-			repositorioMonitores.save(nuevoMonitor);
-			return "redirect:/monitores";
-		}
-
-	}
-
 	
 	@GetMapping("/login")
 	public String log(Model model) {

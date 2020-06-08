@@ -11,5 +11,6 @@ public interface CursoService {
 	public List<Curso> findAll();
 	public Curso findById(Long id);
 	public Curso edit(Curso e);
+	public Curso findByNombre(String nombre);
 	
 }

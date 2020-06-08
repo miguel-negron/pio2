@@ -32,4 +32,9 @@ public class CursoServiceDB implements CursoService {
 		return repositorio.save(e);
 	}
 
+	@Override
+	public Curso findByNombre(String nombre) {
+		return repositorio.findByNombre(nombre);
+	}
+
 }
