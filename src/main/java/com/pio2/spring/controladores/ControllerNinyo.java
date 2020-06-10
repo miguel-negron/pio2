@@ -33,13 +33,13 @@ public class ControllerNinyo {
 	
 	@GetMapping("/ninyo/new")
 	public String controllerAnyadirMonitor(Model model) {
-		model.addAttribute("listaNinyos", new Ninyo());
+		model.addAttribute("newNinyo", new Ninyo());
 		model.addAttribute("cursos", serviceCurso.findAll());
 		return "formNinyo";
 	}
 	
 	@PostMapping("/ninyo/new/submit")
-	public String nuevoEmpleadoSubmit(/*@Valid*/ @ModelAttribute("listaNinyos") Ninyo ninyo,
+	public String nuevoEmpleadoSubmit(/*@Valid*/ @ModelAttribute("newNinyo") Ninyo ninyo,
 										BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
