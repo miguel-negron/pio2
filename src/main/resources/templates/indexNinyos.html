@@ -40,9 +40,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li ><a href="/">Inicio</a></li>
-            <li><a href="/ninyo/new">Nuevo niño</a></li>
-            <li class="active"><a href="/monitores">Ver monitores</a></li>
+            <li class="active"><a href="/">Inicio</a></li>
+            <li><a href="/ninyo/new">Nuevo empleado</a></li>
+            <li><a href="/monitores">Ver monitores</a></li>
             <li><a href="/monitor/new">Añadir monitor</a></li>
           </ul>
           
@@ -67,29 +67,23 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Listado de monitores de la empresa</h1>
+        <h1>Listado de niños de la empresa</h1>
       </div>  
         <table class="table">
         	<thead>
         		<tr>
         			<th>DNI</th>
+        			<!-- <th>Avatar</th> -->
         			<th>Nombre</th>
-        			<th>Primer Apellido</th>
-        			<th>Segundo Apellido</th>
-        			<th>Fecha de nacimiento</th>
         			<th>Email</th>
         			<th>Teléfono</th>
         			<th>Operaciones</th>
         	</thead>
         	<tbody>
-        		<tr th:each="monitor : ${listaMonitores}">
-        			<td th:text="${monitor.dni}">dni</td>
-        			<td th:text="${monitor.nombre}">nombre</td>
-        			<td th:text="${monitor.apellido1}">Primer apellido</td>
-        			<td th:text="${monitor.apellido2}">Segundo apellido</td>
-        			<td th:text="${monitor.fechaDeNacimiento}">Fecha de nacimiento</td>
-        			<td th:text="${monitor.telefono}">Teléfono</td>
-        			<td th:text="${monitor.email}">E-mail</td>
+        		<tr th:each="ninyo : ${listaNinyos}">
+        			<td th:text="${ninyo.dni}">dni</td>
+        			<td th:text="${ninyo.nombre}">nombre</td>
+        			
         			
         			<!--  
         			
