@@ -21,7 +21,7 @@ public class ControllerPrincipal {
 	@GetMapping("/")
 	public String controller1(Model model) {
 		model.addAttribute("listaNinyos", servicio.findAll());
-		return "indexNinyos";
+		return "index";
 	}
 	
 	@GetMapping("/login")

@@ -25,7 +25,11 @@ public class ControllerNinyo {
 	@Autowired
 	CursoRepository serviceCurso;
 
-	
+	@GetMapping("/ninyos")
+	public String controller1(Model model) {
+		model.addAttribute("listaNinyos", servicioNinyo.findAll());
+		return "indexNinyos";
+	}
 	
 	@GetMapping("/ninyo/new")
 	public String controllerAnyadirMonitor(Model model) {
