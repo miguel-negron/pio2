@@ -27,16 +27,17 @@
 
 	<div class="container">
 
+		
 		<form class="form-signin" th:action="@{/login}" method="post">
+			<!--  <img alt="" src="/img/lis.png" width="300" >-->
 			<h2 class="form-signin-heading">Por favor, introduzca sus datos</h2>
-			<label for="username" class="sr-only">Username</label> <input
+			<label for="username" class="sr-only">Usuario</label> <input
 				type="text" id="username" name="username" class="form-control"
 				placeholder="Username" required autofocus> <label
-				for="password" class="sr-only">Password</label> <input
+				for="password" class="sr-only">Contraseña</label> <input
 				type="password" name="password"  id="password" class="form-control"
 				placeholder="Password" required>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-				in</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 		</form>
 
 	</div>
