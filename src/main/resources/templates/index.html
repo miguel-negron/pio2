@@ -78,10 +78,10 @@
 				<h2>
 					Niños
 				</h2>
-				<p th:text=" a">
-					
+				<p>
+					Cantidad de niños: <span th:text="${listaNinyos.size()}"></span>
 				</p>
-								TODO: thymeleaf .length()
+								
 				
 				<p>
 					<a class="btn btn-primary btn-large" href="/ninyos">Learn more</a>
@@ -94,7 +94,7 @@
 					Monitores
 				</h2>
 				<p>
-				TODO: thymeleaf .length()
+					Cantidad de monitores: <span th:text="${listaMonitores.size()}"></span>
 				</p>
 				<p>
 					<a class="btn btn-primary btn-large" href="/monitores">Learn more</a>

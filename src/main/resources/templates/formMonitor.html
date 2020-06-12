@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" 
-				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,22 +57,19 @@
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">
 				<form method="post" enctype="multipart/form-data" action="#"
-					th:action="@{/monitor/new/submit}"
-					th:object="${monitorForm}">
-					<h1
-						th:text="'Nuevo empleado'">Nuevo monitor</h1>
+					th:action="@{/monitor/new/submit}" th:object="${monitorForm}">
+					<h1 th:text="'Nuevo empleado'">Nuevo monitor</h1>
 
 					<div class="form-group">
 						<label for="dni">DNI</label> <input type="text"
-							class="form-control" id="dni" placeholder="DNI"
-							th:field="*{dni}" />
+							class="form-control" id="dni" placeholder="DNI" th:field="*{dni}" />
 					</div>
 					<div class="form-group">
 						<label for="nombre">Nombre</label> <input type="text"
 							class="form-control" id="nombre" placeholder="Nombre"
 							th:field="*{nombre}" />
 					</div>
-					
+
 					<div class="form-group">
 						<label for="apellido1">Primer apellido</label> <input type="text"
 							class="form-control" id="apellido1" placeholder="Primer apellido"
@@ -80,13 +77,13 @@
 					</div>
 					<div class="form-group">
 						<label for="apellido2">Segundo apellido</label> <input type="text"
-							class="form-control" id="apellido1" placeholder="Segundo apellido"
-							th:field="*{apellido2}" />
+							class="form-control" id="apellido1"
+							placeholder="Segundo apellido" th:field="*{apellido2}" />
 					</div>
 					<div class="form-group">
-						<label for="fechaDeNacimiento">Fecha de nacimiento</label> <input type="text"
-							class="form-control" id="fechaDeNacimiento" placeholder="Fecha de nacimiento"
-							th:field="*{fechaDeNacimiento}" />
+						<label for="fechaDeNacimiento">Fecha de nacimiento</label> <input
+							type="text" class="form-control" id="fechaDeNacimiento"
+							placeholder="Fecha de nacimiento" th:field="*{fechaDeNacimiento}" />
 					</div>
 					<div class="form-group">
 						<label for="telefono">Teléfono</label> <input type="text"
@@ -95,12 +92,23 @@
 					</div>
 					<div class="form-group">
 						<label for="email">E-mail</label> <input type="text"
-							class="form-control" id="fechaDeNacimiento" placeholder="Ejemplo@email.com"
-							th:field="*{email}" />
+							class="form-control" id="fechaDeNacimiento"
+							placeholder="Ejemplo@email.com" th:field="*{email}" />
 					</div>
-					
-					
-					
+
+					<div class="form-group ">
+						<label for="curso" class="col-4 col-form-label">Rama</label>
+						<div class="col-8">
+							<select id="curso" name="curso" class="form-control"
+								th:field="*{curso}">
+								<option th:each="curso : ${cursos}" th:value="${curso.nombre}"
+									th:text="${curso.nombre}">Nombre curso</option>
+							</select>
+						</div>
+					</div>
+
+
+
 
 					<button type="submit" class="btn btn-default">Enviar</button>
 				</form>

@@ -1,22 +1,10 @@
-package com.pio2.spring.entidades;
+package com.pio2.spring.modelosFormulario;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.pio2.spring.entidades.Monitor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-
-@Entity	
-public class Monitor {
-
-	@Id
-	private String dni;
+public class ModeloMonitor {
 	
+	private String dni;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
@@ -24,45 +12,14 @@ public class Monitor {
 	private String cargo;
 	private String telefono;
 	private String email;
+	private String curso;
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Alergia> alergias = new ArrayList<>();
-
-	@ManyToOne
-	@JoinColumn(name = "curso_nombre",
-    foreignKey = @ForeignKey(name="CURSO_NOMBRE_FK_MONITOR"))
-	private Curso curso;
-
-	public Monitor() {
+	public ModeloMonitor() {
 		super();
 	}
 
-	public Monitor(String dni) {
-		super();
-		this.dni = dni;
-	}
-
-	public Monitor(String dni, String nombre, String apellido1, String apellido2, String fechaDeNacimiento,
-			String telefono, String email) {
-		super();
-		this.dni = dni;
-		this.nombre = nombre;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.fechaDeNacimiento = fechaDeNacimiento;
-		this.telefono = telefono;
-		this.email = email;
-	}
-
-	public Monitor(String dni, 
-			String nombre, 
-			String apellido1, 
-			String apellido2, 
-			String fechaDeNacimiento,
-			String cargo, 
-			String telefono, 
-			String email, 
-			Curso curso) {
+	public ModeloMonitor(String dni, String nombre, String apellido1, String apellido2, String fechaDeNacimiento,
+			String cargo, String telefono, String email, String curso) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -73,6 +30,11 @@ public class Monitor {
 		this.telefono = telefono;
 		this.email = email;
 		this.curso = curso;
+	}
+	
+	public Monitor vuelca() {
+		Monitor resultado = new Monitor(this.dni, this.nombre, apellido1, apellido2, fechaDeNacimiento, telefono, email);
+		return resultado;
 	}
 
 	public String getDni() {
@@ -139,38 +101,18 @@ public class Monitor {
 		this.email = email;
 	}
 
-	public List<Alergia> getAlergias() {
-		return alergias;
-	}
-
-	public void setAlergias(List<Alergia> alergias) {
-		this.alergias = alergias;
-	}
-	
-	public void addAlergia(Alergia alergia) {
-		alergias.add(alergia);
-		alergia.getMonitoresAlergicos().add(this);
-    }
-
-    public void removeAlergia(Alergia alergia) {
-    	alergias.remove(alergia);
-    	alergia.getMonitoresAlergicos().remove(this);
-    }
-
-	public Curso getCurso() {
+	public String getCurso() {
 		return curso;
 	}
 
-	public void setCurso(Curso curso) {
+	public void setCurso(String curso) {
 		this.curso = curso;
-		curso.getMonitores().add(this);
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((alergias == null) ? 0 : alergias.hashCode());
 		result = prime * result + ((apellido1 == null) ? 0 : apellido1.hashCode());
 		result = prime * result + ((apellido2 == null) ? 0 : apellido2.hashCode());
 		result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
@@ -191,12 +133,7 @@ public class Monitor {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Monitor other = (Monitor) obj;
-		if (alergias == null) {
-			if (other.alergias != null)
-				return false;
-		} else if (!alergias.equals(other.alergias))
-			return false;
+		ModeloMonitor other = (ModeloMonitor) obj;
 		if (apellido1 == null) {
 			if (other.apellido1 != null)
 				return false;
@@ -247,10 +184,9 @@ public class Monitor {
 
 	@Override
 	public String toString() {
-		return "Monitor [dni=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", cargo=" + cargo + ", telefono=" + telefono
-				+ ", email=" + email + ", alergias=" + alergias + ", curso=" + curso.getNombre() + "]";
+		return "ModeloMonitor [dni=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2="
+				+ apellido2 + ", fechaDeNacimiento=" + fechaDeNacimiento + ", cargo=" + cargo + ", telefono=" + telefono
+				+ ", email=" + email + ", curso=" + curso + "]";
 	}
 
-	
 }
