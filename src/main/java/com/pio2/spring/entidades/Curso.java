@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -13,15 +15,23 @@ import javax.persistence.OneToOne;
 public class Curso {
 
 	@Id
+	@GeneratedValue
+	private Long id;
+	
 	private String nombre;
 	
 	@OneToOne
 	private Monitor jefe;
 	
-	@OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = false)
+	/*
+	 * Por algun motivo los cascade types rompen la entrada de ninyos y monitores
+	 * @OneToMany(mappedBy = "curso", cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, orphanRemoval = false, fetch=FetchType.EAGER)
+	 */
+	
+	@OneToMany(mappedBy = "curso", cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, orphanRemoval = false, fetch=FetchType.EAGER)
     private List<Ninyo> ninyos = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = false)
+	@OneToMany(mappedBy = "curso",  orphanRemoval = false, fetch=FetchType.EAGER)
     private List<Monitor> monitores = new ArrayList<>();
 
 	public Curso() {
@@ -31,6 +41,14 @@ public class Curso {
 	public Curso(String nombre) {
 		super();
 		this.nombre = nombre;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -89,6 +107,7 @@ public class Curso {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((jefe == null) ? 0 : jefe.hashCode());
 		result = prime * result + ((monitores == null) ? 0 : monitores.hashCode());
 		result = prime * result + ((ninyos == null) ? 0 : ninyos.hashCode());
@@ -105,6 +124,11 @@ public class Curso {
 		if (getClass() != obj.getClass())
 			return false;
 		Curso other = (Curso) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
 		if (jefe == null) {
 			if (other.jefe != null)
 				return false;
@@ -130,7 +154,8 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [nombre=" + nombre + ", jefe=" + jefe + ", ninyos=" + ninyos + ", monitores=" + monitores + "]";
+		return "Curso [id=" + id + ", nombre=" + nombre + ", jefe=" + jefe + ", ninyos=" + ninyos + ", monitores="
+				+ monitores + "]";
 	}
 
 	

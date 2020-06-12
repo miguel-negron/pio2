@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-@Entity	
+@Entity
 public class Monitor {
 
 	@Id
@@ -72,7 +72,7 @@ public class Monitor {
 		this.cargo = cargo;
 		this.telefono = telefono;
 		this.email = email;
-		this.curso = curso;
+		this.setCurso(curso);
 	}
 
 	public String getDni() {
