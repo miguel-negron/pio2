@@ -1,4 +1,4 @@
-package com.pio2.spring.utilidades;
+package com.pio2.spring.enums;
 
 public enum EnumAlergias {
 	

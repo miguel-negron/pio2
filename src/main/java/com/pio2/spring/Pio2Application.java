@@ -11,13 +11,13 @@ import com.pio2.spring.entidades.Alergia;
 import com.pio2.spring.entidades.Curso;
 import com.pio2.spring.entidades.Monitor;
 import com.pio2.spring.entidades.Ninyo;
+import com.pio2.spring.enums.EnumAlergias;
+import com.pio2.spring.enums.EnumCargos;
+import com.pio2.spring.enums.EnumCursos;
 import com.pio2.spring.repositorios.AlergiaRepository;
 import com.pio2.spring.repositorios.CursoRepository;
 import com.pio2.spring.repositorios.MonitorRepository;
 import com.pio2.spring.repositorios.NinyoRepository;
-import com.pio2.spring.utilidades.EnumAlergias;
-import com.pio2.spring.utilidades.EnumCargos;
-import com.pio2.spring.utilidades.EnumCursos;
 
 @SpringBootApplication
 public class Pio2Application {

@@ -28,10 +28,10 @@ public class Curso {
 	 * @OneToMany(mappedBy = "curso", cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, orphanRemoval = false, fetch=FetchType.EAGER)
 	 */
 	
-	@OneToMany(mappedBy = "curso", cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, orphanRemoval = false, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "curso", orphanRemoval = false, fetch=FetchType.EAGER)
     private List<Ninyo> ninyos = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "curso",  orphanRemoval = false, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "curso", orphanRemoval = false, fetch=FetchType.EAGER)
     private List<Monitor> monitores = new ArrayList<>();
 
 	public Curso() {
