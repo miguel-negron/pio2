@@ -1,7 +1,5 @@
 package com.pio2.spring;
 
-import java.util.Arrays;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -44,6 +42,9 @@ public class Pio2Application {
 //			repositorioNinyos.saveAll( 
 //					Arrays.asList(new Ninyo("1"), new Ninyo("2"), new Ninyo("3"))
 //					);
+			
+			
+			
 			
 			for (int i = 0; i < 5; i++) {
 				Ninyo n = new Ninyo(Integer.toString(i));

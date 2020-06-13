@@ -37,14 +37,14 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				
+
 				<a class="navbar-brand" href="#">nike.com</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/">Inicio</a></li>
-					<li><a href="/ninyos">Lista niños</a></li>
-					<li><a href="/ninyo/new">Nuevo niño</a></li>
+					<li><a href="/ninyos">Ver niños</a></li>
+					<li><a href="/ninyo/new">Añadir niño</a></li>
 					<li><a href="/monitores">Ver monitores</a></li>
 					<li><a href="/monitor/new">Añadir monitor</a></li>
 				</ul>
@@ -71,37 +71,35 @@
 		<div class="starter-template">
 			<h1>index</h1>
 		</div>
-		
-		<div class="row">
-		<div class="col-md-6">
-			<div class="jumbotron">
-				<h2>
-					Niños
-				</h2>
-				<p>
-					Cantidad de niños: <span th:text="${listaNinyos.size()}"></span>
-				</p>
-								
-				
-				<p>
-					<a class="btn btn-primary btn-large" href="/ninyos">Learn more</a>
-				</p>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="jumbotron">
-				<h2>
-					Monitores
-				</h2>
-				<p>
-					Cantidad de monitores: <span th:text="${listaMonitores.size()}"></span>
-				</p>
-				<p>
-					<a class="btn btn-primary btn-large" href="/monitores">Learn more</a>
-				</p>
-			</div>
-		</div>
 
+		<div th:each="ninyo : ${listaNinyos}" class="row">
+			<div class="col-md-6">
+				<div class="jumbotron">
+					<h2>Niños</h2>
+					<p>
+						Cantidad de niños: <span th:text="${listaNinyos.size()}"></span>
+					</p>
+
+
+					<p>
+						<a class="btn btn-primary btn-large" href="/ninyos">Learn more</a>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="jumbotron">
+					<h2>Monitores</h2>
+					<p>
+						Cantidad de monitores: <span th:text="${listaMonitores.size()}"></span>
+					</p>
+					<p>
+						<a class="btn btn-primary btn-large" href="/monitores">Learn
+							more</a>
+					</p>
+				</div>
+			</div>
+
+		</div>
 	</div>
 	<!-- /.container -->
 

@@ -24,7 +24,12 @@ public class Curso {
 	private Monitor jefe;
 	
 	/*
+	 * TODO
+	 * 
 	 * Por algun motivo los cascade types rompen la entrada de ninyos y monitores
+	 * 
+	 * Igual hay que hacer algo en el otro lado de la relacion 
+	 * 
 	 * @OneToMany(mappedBy = "curso", cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, orphanRemoval = false, fetch=FetchType.EAGER)
 	 */
 	
