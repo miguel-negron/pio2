@@ -16,6 +16,7 @@ import com.pio2.spring.repositorios.AlergiaRepository;
 import com.pio2.spring.repositorios.CursoRepository;
 import com.pio2.spring.repositorios.MonitorRepository;
 import com.pio2.spring.repositorios.NinyoRepository;
+import com.pio2.spring.utilidades.InicializadorDatos;
 
 @SpringBootApplication
 public class Pio2Application {
@@ -25,10 +26,8 @@ public class Pio2Application {
 	}
 
 	@Bean
-	CommandLineRunner initDataNinyos(NinyoRepository repositorioNinyos, 
-										CursoRepository repositorioCursos,
-										MonitorRepository repositorioMonitores,
-										AlergiaRepository repositorioAlergias) {
+	CommandLineRunner initDataNinyos(NinyoRepository repositorioNinyos, CursoRepository repositorioCursos,
+			MonitorRepository repositorioMonitores, AlergiaRepository repositorioAlergias) {
 		return (args) -> {
 
 //			Empleado empleado = new Empleado("Luis Miguel López", "luismi.lopez@openwebinars.net", "954000000");
@@ -42,38 +41,41 @@ public class Pio2Application {
 //			repositorioNinyos.saveAll( 
 //					Arrays.asList(new Ninyo("1"), new Ninyo("2"), new Ninyo("3"))
 //					);
-			
-			
-			
-			
+
 			for (int i = 0; i < 5; i++) {
-				Ninyo n = new Ninyo(Integer.toString(i));
 				Curso c = new Curso(EnumCursos.values()[i].toString());
-				Monitor m = new Monitor(Integer.toString(i));
-					m.setCargo(EnumCargos.values()[i%EnumCargos.values().length].toString());
-				
-				n.setCurso(c);
-				m.setCurso(c);
-				
-				
 				repositorioCursos.save(c);
-				repositorioNinyos.save(n);
-				repositorioMonitores.save(m);
+
 				
-				c.setJefe(m);
+				for (int j = 0; j < 5; j++) {
+					Ninyo n = new Ninyo(InicializadorDatos.creaDni(), InicializadorDatos.creaNombre(),
+							InicializadorDatos.creaApellido(), InicializadorDatos.creaApellido(), "01-01-1631");
+					Monitor m = new Monitor(InicializadorDatos.creaDni(), InicializadorDatos.creaNombre(),
+							InicializadorDatos.creaApellido(), InicializadorDatos.creaApellido(), "01-01-1631",
+							"900 800 700", "arregla@esto.pordios");
+					m.setCargo(EnumCargos.values()[i % EnumCargos.values().length].toString());
+
+					n.setCurso(c);
+					m.setCurso(c);
+
+					repositorioNinyos.save(n);
+					repositorioMonitores.save(m);
+					//TODO arreglame por dios
+					c.setJefe(m);
+				}
+
+				
 				repositorioCursos.save(c);
 
 			}
-			
+
 			for (EnumAlergias alergeno : EnumAlergias.values()) {
 				Alergia a = new Alergia(alergeno.toString());
-				
+
 				repositorioAlergias.save(a);
 			}
 
 		};
 	}
-	
-	
-	
+
 }
