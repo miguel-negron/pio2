@@ -72,14 +72,16 @@
 			<h1>index</h1>
 		</div>
 
-		<div th:each="ninyo : ${listaNinyos}" class="row">
+		<div th:each="curso : ${listaCursos}" class="row">
 			<div class="col-md-6">
 				<div class="jumbotron">
-					<h2>Niños</h2>
+					<h2 th:text="${curso.nombre}">Curso</h2>
 					<p>
-						Cantidad de niños: <span th:text="${listaNinyos.size()}"></span>
+						Cantidad de niños: <span th:text="${curso.ninyos.size()}"></span>
 					</p>
-
+					<p>
+						Cantidad de monitores: <span th:text="${curso.monitores.size()}"></span>
+					</p>
 
 					<p>
 						<a class="btn btn-primary btn-large" href="/ninyos">Learn more</a>
@@ -88,9 +90,9 @@
 			</div>
 			<div class="col-md-6">
 				<div class="jumbotron">
-					<h2>Monitores</h2>
+					<h2>Hay que poner algo aqui</h2>
 					<p>
-						Cantidad de monitores: <span th:text="${listaMonitores.size()}"></span>
+						Alergias o fichas o yo que se: <span th:text="${curso.monitores.size()}"></span>
 					</p>
 					<p>
 						<a class="btn btn-primary btn-large" href="/monitores">Learn
