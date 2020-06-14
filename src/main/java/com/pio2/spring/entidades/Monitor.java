@@ -24,6 +24,8 @@ public class Monitor {
 	private String cargo;
 	private String telefono;
 	private String email;
+//	private boolean hasTitulo;
+//	private boolean hasCertificadoDeDelitosSexuales;
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Alergia> alergias = new ArrayList<>();

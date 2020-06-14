@@ -30,7 +30,34 @@ public class InicializadorDatos {
 	}
 	
 	public static String creaDni() {
-		return Integer.toString((int)(Math.random() * 100000000)) + "X";
+		String num = Integer.toString((int)(Math.random() * 100000000));
+		
+		String dni = num + letraDNI(num);
+		
+		while (dni.length() < 9) {
+			dni = "0" + dni;
+		}
+		
+		return dni;
+	}
+	
+	//TODO esto creo que da la letra mal
+	private static String letraDNI(String dni) {
+		// El método es privado porque lo voy a usar internamente en esta clase, no se
+		// necesita fuera de ella
+
+		// pasar miNumero a integer
+		int miDNI = Integer.parseInt(dni);
+		int resto = 0;
+		String miLetra = "";
+		String[] asignacionLetra = { "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S",
+				"Q", "V", "H", "L", "C", "K", "E" };
+
+		resto = miDNI % 23;
+
+		miLetra = asignacionLetra[resto];
+
+		return miLetra;
 	}
 
 }

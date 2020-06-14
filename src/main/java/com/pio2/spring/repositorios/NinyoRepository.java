@@ -6,4 +6,5 @@ import com.pio2.spring.entidades.Ninyo;
 
 public interface NinyoRepository extends JpaRepository<Ninyo, Long> {
 
+	public Ninyo findByDni(String dni);
 }

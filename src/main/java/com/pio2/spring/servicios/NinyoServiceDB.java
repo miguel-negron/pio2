@@ -32,6 +32,11 @@ public class NinyoServiceDB implements NinyoService{
 	}
 
 	@Override
+	public Ninyo findByDni(String dni) {
+		return repositorio.findByDni(dni);
+	}
+
+	@Override
 	public Ninyo edit(Ninyo e) {
 		return repositorio.save(e);
 	}

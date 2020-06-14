@@ -79,16 +79,17 @@
         			<th>Apellido 2</th>
         			<th>Fecha de nacimiento</th>
         			<th>Rama</th>
+        			<th>Ficha</th>
         	</thead>
         	<tbody>
-        		<tr th:each="ninyo : ${listaNinyos}">
+        		<tr th:each="ninyo : ${listaNinyos}" >
         			<td th:text="${ninyo.dni}">dni</td>
         			<td th:text="${ninyo.nombre}">nombre</td>
         			<td th:text="${ninyo.apellido1}">nombre</td>
         			<td th:text="${ninyo.apellido2}">nombre</td>
         			<td th:text="${ninyo.fechaDeNacimiento}">nombre</td>
         			<td th:text="${ninyo.curso.nombre}">nombre</td>
-        			
+        			<td><a th:href="@{/ninyos/ficha/{dni}(dni=${ninyo.dni})}">Ir a ficha</a></td>
         			
         			<!--  
         			
