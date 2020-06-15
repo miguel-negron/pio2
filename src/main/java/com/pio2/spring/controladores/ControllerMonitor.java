@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.pio2.spring.entidades.Monitor;
-import com.pio2.spring.modelosFormulario.ModeloMonitor;
 import com.pio2.spring.repositorios.CursoRepository;
 import com.pio2.spring.repositorios.MonitorRepository;
 import com.pio2.spring.servicios.CursoServiceDB;
