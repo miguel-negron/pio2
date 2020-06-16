@@ -48,11 +48,14 @@ public class Pio2Application {
 
 				
 				for (int j = 0; j < 5; j++) {
+					String nomMon = InicializadorDatos.creaNombre();
+					String apeMon = InicializadorDatos.creaApellido();
+					
 					Ninyo n = new Ninyo(InicializadorDatos.creaDni(), InicializadorDatos.creaNombre(),
 							InicializadorDatos.creaApellido(), InicializadorDatos.creaApellido(), "01-01-1631");
-					Monitor m = new Monitor(InicializadorDatos.creaDni(), InicializadorDatos.creaNombre(),
-							InicializadorDatos.creaApellido(), InicializadorDatos.creaApellido(), "01-01-1631",
-							"900 800 700", "arregla@esto.pordios");
+					Monitor m = new Monitor(InicializadorDatos.creaDni(), nomMon,
+							apeMon, InicializadorDatos.creaApellido(), "01-01-1631",
+							 nomMon.toLowerCase() + "." + apeMon.toLowerCase() + "@gmail.com", "900 800 700");
 					m.setCargo(EnumCargos.values()[i % EnumCargos.values().length].toString());
 
 					n.setCurso(c);
