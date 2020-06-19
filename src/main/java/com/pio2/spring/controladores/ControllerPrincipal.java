@@ -41,6 +41,12 @@ public class ControllerPrincipal {
 		return "login";
 	}
 
+	@GetMapping("/alergias")
+	public String goToAlergias(Model model) {
+		model.addAttribute("listaNinyos", servicioNinyo.findAll());
+		return "indexAlergias";
+	}
+
 	/* 
 	@GetMapping("/ninyo/new")
 	public String crearNinyo(Model model) {

@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 public class Alergia {
 	
 	@Id
-	private String alergeno;
+	private String nombre;
 	
 	@ManyToMany(mappedBy = "alergias")
 	private List<Ninyo> ninyosAlergicos = new ArrayList<>();
@@ -25,15 +25,15 @@ public class Alergia {
 
 	public Alergia(String alergeno) {
 		super();
-		this.alergeno = alergeno;
+		this.nombre = alergeno;
 	}
 
 	public String getAlergeno() {
-		return alergeno;
+		return nombre;
 	}
 
 	public void setAlergeno(String alergeno) {
-		this.alergeno = alergeno;
+		this.nombre = alergeno;
 	}
 
 	public List<Ninyo> getNinyosAlergicos() {
@@ -76,7 +76,7 @@ public class Alergia {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((alergeno == null) ? 0 : alergeno.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((monitoresAlergicos == null) ? 0 : monitoresAlergicos.hashCode());
 		result = prime * result + ((ninyosAlergicos == null) ? 0 : ninyosAlergicos.hashCode());
 		return result;
@@ -91,10 +91,10 @@ public class Alergia {
 		if (getClass() != obj.getClass())
 			return false;
 		Alergia other = (Alergia) obj;
-		if (alergeno == null) {
-			if (other.alergeno != null)
+		if (nombre == null) {
+			if (other.nombre != null)
 				return false;
-		} else if (!alergeno.equals(other.alergeno))
+		} else if (!nombre.equals(other.nombre))
 			return false;
 		if (monitoresAlergicos == null) {
 			if (other.monitoresAlergicos != null)
@@ -111,7 +111,7 @@ public class Alergia {
 
 	@Override
 	public String toString() {
-		return "Alergia [alergeno=" + alergeno + ", ninyosAlergicos=" + ninyosAlergicos + ", monitoresAlergicos="
+		return "Alergia [alergeno=" + nombre + ", ninyosAlergicos=" + ninyosAlergicos + ", monitoresAlergicos="
 				+ monitoresAlergicos + "]";
 	}
 
