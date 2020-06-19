@@ -69,38 +69,24 @@
 	<div class="container">
 
 		<div class="starter-template">
-			<h1>index</h1>
+			<h1><span th:text="${ninyo.nombre}"></span> <span th:text="${ninyo.apellido1}"></span> <span th:text="${ninyo.apellido2}"></span></h1>
 		</div>
 
-		<div th:each="curso : ${listaCursos}" class="row">
-			<div class="col-md-6">
-				<div class="jumbotron">
-					<h2 th:text="${curso.nombre}">Curso</h2>
-					<p>
-						Cantidad de niños: <span th:text="${curso.ninyos.size()}"></span>
-					</p>
-					<p>
-						Cantidad de monitores: <span th:text="${curso.monitores.size()}"></span>
-					</p>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8">
+					<h3>Atributo.</h3>
+				</div>
+				<div class="col-md-4">
 
-					<p>
-						<a class="btn btn-primary btn-large" href="/ninyos">Learn more</a>
-					</p>
+					<button type="button" class="btn btn-primary">Button</button>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="jumbotron">
-					<h2>Hay que poner algo aqui</h2>
-					<p>
-						Alergias o fichas o yo que se: <span th:text="${curso.monitores.size()}"></span>
-					</p>
-					<p>
-						<a class="btn btn-primary btn-large" href="/monitores">Learn
-							more</a>
-					</p>
+			<div class="row">
+				<div class="col-md-12">
+					<p>datos</p>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<!-- /.container -->
