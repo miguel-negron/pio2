@@ -6,4 +6,5 @@ import com.pio2.spring.entidades.Alergia;
 
 public interface AlergiaRepository extends JpaRepository<Alergia, Long> {
 
+	public Alergia findByNombre(String nombre);
 }
