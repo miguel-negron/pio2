@@ -3,13 +3,9 @@ package com.pio2.spring.controladores;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import com.pio2.spring.entidades.Monitor;
-import com.pio2.spring.repositorios.MonitorRepository;
+import com.pio2.spring.servicios.AlergiaServiceDB;
 import com.pio2.spring.servicios.CursoServiceDB;
 import com.pio2.spring.servicios.MonitorServiceDB;
 import com.pio2.spring.servicios.NinyoServiceDB;
@@ -25,6 +21,10 @@ public class ControllerPrincipal {
 
 	@Autowired
 	CursoServiceDB servicioCurso;
+	
+	@Autowired
+	AlergiaServiceDB servicioAlergia;
+	
 
 	@GetMapping("/")
 	public String controller1(Model model) {
@@ -43,7 +43,7 @@ public class ControllerPrincipal {
 
 	@GetMapping("/alergias")
 	public String goToAlergias(Model model) {
-		model.addAttribute("listaNinyos", servicioNinyo.findAll());
+		model.addAttribute("listaAlergias", servicioAlergia.findAll());
 		return "indexAlergias";
 	}
 

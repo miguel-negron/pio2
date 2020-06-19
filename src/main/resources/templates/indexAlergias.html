@@ -26,7 +26,14 @@
   </head>
 
   <body>
+<!-- 
 
+
+
+	HAY DOS CONTAINERS
+
+
+-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -70,39 +77,33 @@
       <div class="starter-template">
         <h1>Listado de monitores</h1>
       </div>  
-        <table class="table">
+        <table class="table" th:each="alergia : ${listaAlergias}">
         	<thead>
         		<tr>
-        			<th>DNI</th>
+        			<th>Rama</th>
         			<th>Nombre</th>
         			<th>Primer Apellido</th>
         			<th>Segundo Apellido</th>
-        			<th>Fecha de nacimiento</th>
-        			<th>Email</th>
-        			<th>Teléfono</th>
-        			<th>Operaciones</th>
+<!--         			<th>Operaciones</th> -->
         	</thead>
         	<tbody>
-        		<tr th:each="monitor : ${listaMonitores}">
-        			<td th:text="${monitor.dni}">dni</td>
+        		<tr>
+        			<td colspan="4" align="center">Monitores</td>
+        		</tr>
+        		<tr th:each="monitor : ${alergia.monitoresAlergicos}">
+        			<td th:text="${monitor.curso}">dni</td>
         			<td th:text="${monitor.nombre}">nombre</td>
         			<td th:text="${monitor.apellido1}">Primer apellido</td>
         			<td th:text="${monitor.apellido2}">Segundo apellido</td>
-        			<td th:text="${monitor.fechaDeNacimiento}">Fecha de nacimiento</td>
-        			<td th:text="${monitor.telefono}">Teléfono</td>
-        			<td th:text="${monitor.email}">E-mail</td>
-        			
-        			<!--  
-        			
-        			<td><img th:src="@{${empleado.imagen}?: 'http://api.adorable.io/avatars/64/{email}.png'(email=${empleado.email})}" width="64px"></td>
-        			<td th:text="${empleado.nombre}">Pepe Pérez</td>
-        			<td th:text="${empleado.email}">pepe.perez@openwebinars.net</td>
-        			<td th:text="${empleado.telefono}">954000000</td>
-        			
-        			
-        			<td><a th:href="@{/empleado/edit/{id}(id=${empleado.id})}">Editar</a></td>  
-        			
-        			-->      		
+        		</tr>
+        		<tr>
+        			<td colspan="4" align="center">Niños</td>
+        		</tr>
+        		<tr th:each="ninyo : ${alergia.ninyosAlergicos}">
+        			<td th:text="${ninyo.curso}">dni</td>
+        			<td th:text="${ninyo.nombre}">nombre</td>
+        			<td th:text="${ninyo.apellido1}">Primer apellido</td>
+        			<td th:text="${ninyo.apellido2}">Segundo apellido</td>
         		</tr>
         	</tbody>
         </table>
