@@ -26,7 +26,6 @@
   </head>
 
   <body>
-<<<<<<< HEAD
 <!-- 
 
 
@@ -76,9 +75,10 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Listado de monitores</h1>
+        <h1>Alergias</h1>
       </div>  
         <table class="table" th:each="alergia : ${listaAlergias}">
+        <caption class="h2" th:text="${#strings.capitalize(alergia.nombre)}"></caption>
         	<thead>
         		<tr>
         			<th>Rama</th>
@@ -89,7 +89,7 @@
         	</thead>
         	<tbody>
         		<tr>
-        			<td colspan="4" align="center">Monitores</td>
+        			<td colspan="4" align="center" class="lead" >Monitores</td>
         		</tr>
         		<tr th:each="monitor : ${alergia.monitoresAlergicos}">
         			<td th:text="${monitor.curso}">dni</td>
@@ -98,7 +98,7 @@
         			<td th:text="${monitor.apellido2}">Segundo apellido</td>
         		</tr>
         		<tr>
-        			<td colspan="4" align="center">Niños</td>
+        			<td colspan="4" align="center" class="lead" >Niños</td>
         		</tr>
         		<tr th:each="ninyo : ${alergia.ninyosAlergicos}">
         			<td th:text="${ninyo.curso}">dni</td>

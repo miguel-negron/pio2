@@ -28,12 +28,12 @@ public class Alergia {
 		this.nombre = alergeno;
 	}
 
-	public String getAlergeno() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setAlergeno(String alergeno) {
-		this.nombre = alergeno;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public List<Ninyo> getNinyosAlergicos() {
