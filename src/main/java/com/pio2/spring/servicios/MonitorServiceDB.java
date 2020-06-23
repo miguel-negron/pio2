@@ -40,4 +40,12 @@ public class MonitorServiceDB implements MonitorService {
 		repository.delete(e);
 	}
 
+	@Override
+	public Monitor findByDni(String dni) {
+		
+		return repository.findByDni(dni);
+	}
+
+	
+	
 }

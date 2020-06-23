@@ -6,4 +6,7 @@ import com.pio2.spring.entidades.Monitor;
 
 public interface MonitorRepository extends JpaRepository<Monitor, Long> {
 
+	public Monitor findByDni(String dni);
+	
+	
 }

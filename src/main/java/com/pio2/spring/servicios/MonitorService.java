@@ -10,5 +10,6 @@ public interface MonitorService {
 	public List<Monitor> findAll();
 	public Monitor findById(long id);
 	public Monitor edit(Monitor e);
+	public Monitor findByDni(String dni);
 	
 }

@@ -82,7 +82,7 @@
         			<th>Fecha de nacimiento</th>
         			<th>Email</th>
         			<th>Teléfono</th>
-        			<th>Operaciones</th>
+        			<th>Operaciones<th>
         	</thead>
         	<tbody>
         		<tr th:each="monitor : ${listaMonitores}">
@@ -93,6 +93,8 @@
         			<td th:text="${monitor.fechaDeNacimiento}">Fecha de nacimiento</td>
         			<td th:text="${monitor.telefono}">Teléfono</td>
         			<td th:text="${monitor.email}">E-mail</td>
+        			<td><a th:href="@{/monitores/{dni}(dni=${monitor.dni})}">Modificar</a></td>
+        			
         			
         			<!--  
         			
