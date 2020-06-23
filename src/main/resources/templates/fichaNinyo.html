@@ -69,66 +69,57 @@
 	<div class="container">
 
 		<div class="starter-template">
-			<h1><span th:text="${ninyo.nombre}"></span> <span th:text="${ninyo.apellido1}"></span> <span th:text="${ninyo.apellido2}"></span></h1>
+			<h1>
+				<span th:text="${ninyo.nombre}"></span> <span
+					th:text="${ninyo.apellido1}"></span> <span
+					th:text="${ninyo.apellido2}"></span>
+			</h1>
 		</div>
 
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8">
-					<h3>Atributo.</h3>
+					<dl>
+						<dt>Description lists</dt>
+						<dd>A description list is perfect for defining terms.</dd>
+						<dt>Euismod</dt>
+						<dd>Vestibulum id ligula porta felis euismod semper eget
+							lacinia odio sem nec elit.</dd>
+						<dd>Donec id elit non mi porta gravida at eget metus.</dd>
+						<dt>Malesuada porta</dt>
+						<dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+						<dt>Felis euismod semper eget lacinia</dt>
+						<dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris
+							condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+					</dl>
 				</div>
 				<div class="col-md-4">
 
-					<button type="button" class="btn btn-primary">Button</button>
+					<form class="form-horizontal">
+						<fieldset>
+
+							<!-- Form Name -->
+							<legend>Alergias</legend>
+
+							<!-- Multiple Checkboxes -->
+							<div class="form-group">
+
+								<div class="col-md-4">
+									<div class="checkbox" th:each="alergia : ${alergias}">
+										<label for="checkboxes-0" th:text="${alergia.nombre}"> <input type="checkbox"
+											name="checkboxes" id="checkboxes-0" value="1"> Option
+											one
+										</label>
+									</div>
+
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<p>datos</p>
-				</div>
-			</div>
-			
-			<div class="row">
-		<div class="col-md-4">
-			<div class="jumbotron">
-				<h2>
-					Hello, world!
-				</h2>
-				<p>
-					This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-				</p>
-				<p>
-					<a class="btn btn-primary btn-large" href="#">Learn more</a>
-				</p>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="jumbotron">
-				<h2>
-					Hello, world!
-				</h2>
-				<p>
-					This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-				</p>
-				<p>
-					<a class="btn btn-primary btn-large" href="#">Learn more</a>
-				</p>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="jumbotron">
-				<h2>
-					Hello, world!
-				</h2>
-				<p>
-					This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-				</p>
-				<p>
-					<a class="btn btn-primary btn-large" href="#">Learn more</a>
-				</p>
-			</div>
-		</div>
-	</div>
 		</div>
 	</div>
 	<!-- /.container -->

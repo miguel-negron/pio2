@@ -16,6 +16,7 @@ import com.pio2.spring.entidades.Monitor;
 import com.pio2.spring.entidades.Ninyo;
 import com.pio2.spring.repositorios.CursoRepository;
 import com.pio2.spring.repositorios.MonitorRepository;
+import com.pio2.spring.servicios.AlergiaServiceDB;
 import com.pio2.spring.servicios.CursoServiceDB;
 import com.pio2.spring.servicios.NinyoService;
 import com.pio2.spring.servicios.NinyoServiceDB;
@@ -27,7 +28,10 @@ public class ControllerNinyo {
 	NinyoServiceDB servicioNinyo;
 
 	@Autowired
-	CursoRepository serviceCurso;
+	CursoServiceDB serviceCurso;
+	
+	@Autowired
+	AlergiaServiceDB serviceAlergia;
 
 	@GetMapping("/ninyos")
 	public String controller1(Model model) {
@@ -38,6 +42,7 @@ public class ControllerNinyo {
 	@GetMapping("/ninyos/ficha/{dni}")
 	public String controllerFicha(@PathVariable String dni, Model model) {
 		model.addAttribute("ninyo", servicioNinyo.findByDni(dni));
+		model.addAttribute("alergias", serviceAlergia.findAll());
 		return "fichaNinyo";
 	}
 
