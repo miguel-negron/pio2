@@ -41,8 +41,10 @@ public class ControllerNinyo {
 
 	@GetMapping("/ninyos/ficha/{dni}")
 	public String controllerFicha(@PathVariable String dni, Model model) {
-		model.addAttribute("ninyo", servicioNinyo.findByDni(dni));
+		model.addAttribute("newNinyo", servicioNinyo.findByDni(dni));
 		model.addAttribute("alergias", serviceAlergia.findAll());
+		model.addAttribute("cursos", serviceCurso.findAll());
+
 		return "fichaNinyo";
 	}
 

@@ -70,28 +70,91 @@
 
 		<div class="starter-template">
 			<h1>
-				<span th:text="${ninyo.nombre}"></span> <span
-					th:text="${ninyo.apellido1}"></span> <span
-					th:text="${ninyo.apellido2}"></span>
+				<span th:text="${newNinyo.nombre}"></span> <span
+					th:text="${newNinyo.apellido1}"></span> <span
+					th:text="${newNinyo.apellido2}"></span>
 			</h1>
 		</div>
 
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8">
-					<dl>
-						<dt>Description lists</dt>
-						<dd>A description list is perfect for defining terms.</dd>
-						<dt>Euismod</dt>
-						<dd>Vestibulum id ligula porta felis euismod semper eget
-							lacinia odio sem nec elit.</dd>
-						<dd>Donec id elit non mi porta gravida at eget metus.</dd>
-						<dt>Malesuada porta</dt>
-						<dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-						<dt>Felis euismod semper eget lacinia</dt>
-						<dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris
-							condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-					</dl>
+					<form method="post" enctype="multipart/form-data" action="#"
+					th:action="@{/ninyo/new/submit}" th:object="${newNinyo}">
+
+					<div class="form-group row">
+						<label for="dni" class="col-4 col-form-label">Dni</label>
+						<div class="col-8">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-500px"></i>
+									</div>
+								</div>
+								<input id="dni" name="dni" placeholder="12345678X" type="text"
+									required="required" class="form-control" th:field="*{dni}" disabled>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="nombre" class="col-4 col-form-label">Nombre</label>
+						<div class="col-8">
+							<input type="text" class="form-control" id="nombre"
+								placeholder="Nombre" th:field="*{nombre}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="apellido1" class="col-4 col-form-label">Apellido
+							1</label>
+						<div class="col-8">
+							<input type="text"
+							class="form-control" id="apellido1" placeholder="Primer apellido"
+							th:field="*{apellido1}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="apellido2" class="col-4 col-form-label">Apellido
+							2</label>
+						<div class="col-8">
+							<input type="text"
+							class="form-control" id="apellido2" placeholder="Segundo apellido"
+							th:field="*{apellido2}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-4 col-form-label" for="fechaDeNacimiento">Fecha
+							de nacimiento</label>
+						<div class="col-8">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-birthday-cake"></i>
+									</div>
+								</div>
+								<input type="date" class="form-control" id="fechaDeNacimiento"
+									placeholder="Fecha de nacimiento"
+									th:field="*{fechaDeNacimiento}" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="curso" class="col-4 col-form-label">Rama</label>
+						<div class="col-8">
+							<select id="curso" name="curso" class="form-control"
+								th:field=*{curso}>
+								<option th:each="curso : ${cursos}" th:value="${curso.id}"
+									th:text="${curso.nombre}">Nombre curso</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="offset-4 col-8">
+							<button name="submit" type="submit" class="btn btn-primary">Aceptar</button>
+						</div>
+					</div>
+				</form>
 				</div>
 				<div class="col-md-4">
 
@@ -106,9 +169,9 @@
 
 								<div class="col-md-4">
 									<div class="checkbox" th:each="alergia : ${alergias}">
-										<label for="checkboxes-0" th:text="${alergia.nombre}"> <input type="checkbox"
-											name="checkboxes" id="checkboxes-0" value="1"> Option
-											one
+										<label for="checkboxes-0"> <input type="checkbox"
+											name="checkboxes" id="checkboxes-0" value="1"> <span
+											th:text="${alergia.nombre}"></span>
 										</label>
 									</div>
 
